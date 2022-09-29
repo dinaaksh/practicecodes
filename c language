@@ -8,6 +8,7 @@ int main(){
     printf("Sum of the two numbers is: %d",sum);
     
 }
+OUTPUT:
 
 /average of three numbers in C/
 #include<stdio.h>
@@ -89,7 +90,7 @@ int main()
 {   int cel,far;
     printf("Enter temperature in celcius:");
     scanf("%d",&cel);
-    far=((cel)*(9/5))+32;
+    far=((cel)*(1.8))+32;
     printf("The Temperature in fahrenheit is: %d",far);
 }
 
