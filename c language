@@ -1,3 +1,4 @@
+/addition of two numbers in C/
 #include<stdio.h>
 int main(){
     int A,B,sum=0;
@@ -8,6 +9,7 @@ int main(){
     
 }
 
+/average of three numbers in C/
 #include<stdio.h>
 int main(){
     int A,B,C, avg=0;
@@ -18,6 +20,7 @@ int main(){
     
 }
 
+/area of circle
 #include<stdio.h>
 int main(){
     float r,area;
@@ -28,6 +31,7 @@ int main(){
 
 }
 
+/simple interest
 #include<stdio.h>
 int main(){
     int p,r,t,final;
@@ -40,4 +44,67 @@ int main(){
     final=p*(1+r*t);
     printf("The simple interest is: %d",final);
 }
+/f with hash
+#include <stdio.h>
+int main()
+{
+    printf("#####\n#\n####\n#\n#\n#");
+}
 
+/swapping numbers with third variable
+#include <stdio.h>
+int main(){
+    int a,b,c;
+    printf("Enter two numbers:\n");
+    scanf("%d%d",&a,&b);
+    printf("First number:%d\n",a);
+    printf("Second number:%d\n",b);
+    printf("Swapping the numbers:\n");
+    c=a;
+    a=b;
+    b=c;
+    printf("First variable:%d\n",a);
+    printf("Second variable:%d\n",b);
+}
+ 
+/avg weight
+#include <stdio.h>
+int main()
+{   float w1, w2, n1, n2, average;
+    printf("Weight of item1: ");
+    scanf("%f", &w1);
+    printf("\nWeight of item2: ");
+    scanf("%f", &w2);
+    printf("\nNo. of item1 purchases: ");
+    scanf("%f", &n1);
+    printf("\nNo. of item2 purchases: ");
+    scanf("%f", &n2);
+    average = ((w1 * n1) + (w2 * n2)) / (n1 + n2);
+    printf("\nAverage value = %f", average);
+}
+ 
+/celcius to fahrenheit 
+#include <stdio.h>
+int main()
+{   int cel,far;
+    printf("Enter temperature in celcius:");
+    scanf("%d",&cel);
+    far=((cel)*(9/5))+32;
+    printf("The Temperature in fahrenheit is: %d",far);
+}
+
+/swapping numbers without 3rd variable
+#include <stdio.h>
+int main()
+{   int v1,v2;
+    printf("Enter two numbers:");
+    scanf("%d%d",&v1,&v2);
+    printf("First Var:%d\n",v1);
+    printf("Second Var:%d\n",v2);
+    printf("Swapping");
+    v1=v1+v2;
+    v2=v1-v2;
+    v1=v1-v2;
+    printf("First Var:%d\n",v1);
+    printf("Second Var:%d\n",v2);
+}
