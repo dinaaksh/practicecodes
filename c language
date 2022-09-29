@@ -86,25 +86,25 @@ int main()
 /celcius to fahrenheit 
 #include <stdio.h>
 int main()
-{   int cel,far;
+{   float cel,far;
     printf("Enter temperature in celcius:");
-    scanf("%d",&cel);
+    scanf("%f",&cel);
     far=((cel)*(1.8))+32;
-    printf("The Temperature in fahrenheit is: %d",far);
+    printf("The Temperature in fahrenheit is: %f",far);
 }
 
 /swapping numbers without 3rd variable
 #include <stdio.h>
 int main()
 {   int v1,v2;
-    printf("Enter two numbers:");
+    printf("Enter two numbers:\n");
     scanf("%d%d",&v1,&v2);
-    printf("First Var:%d\n",v1);
-    printf("Second Var:%d\n",v2);
-    printf("Swapping");
+    printf("First Variable:%d\n",v1);
+    printf("Second Variable:%d\n",v2);
+    printf("Swapping\n");
     v1=v1+v2;
     v2=v1-v2;
     v1=v1-v2;
-    printf("First Var:%d\n",v1);
-    printf("Second Var:%d\n",v2);
+    printf("First Variable:%d\n",v1);
+    printf("Second Variable:%d\n",v2);
 }
