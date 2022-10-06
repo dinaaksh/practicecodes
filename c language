@@ -108,3 +108,137 @@ int main()
     printf("First Variable:%d\n",v1);
     printf("Second Variable:%d\n",v2);
 }
+
+/days conversion into years,weeks,days
+#include <stdio.h>
+
+int main()
+{
+    int days,years,weeks;
+    days=1500;
+    years=days/365;
+    weeks=(days - years *365) / 7;
+    days=days-((years*365)+(weeks*7));
+    printf("Years: %d\n",years);
+    printf("Weeks: %d\n",weeks);
+    printf("Days: %d\n",days);
+    
+}
+
+/convert integer into hours minutes and seconds
+int main() 
+{
+	int second, h, m, s;
+	printf("Input seconds: ");
+	scanf("%d", &second);
+	
+	h = (second/3600); 
+	
+	m = (second -(3600*h))/60;
+	
+	s = (second -(3600*h)-(m*60));
+	
+	printf("Hours:Minutes:Seconds - %d:%d:%d\n",h,m,s);
+	
+
+}
+
+/calculate roots of quadratic equation
+#include <stdio.h>
+#include<math.h>
+int main() 
+{ int a,b,c,d;
+  float x,y;
+ 
+   printf("Input the value of a:");
+   scanf("%d",&a);
+   printf("Input the value of b:");
+   scanf("%d",&b);
+   printf("Input the value of c:");
+   scanf("%d",&c);
+   d=sqrt(b*b-4*a*c);
+   if(d==0)
+    {
+     printf("Both the roots are equal.\n");
+     x=-b/(2.0*a);
+     y=x;
+     printf("First  Root Root1= %f\n",x);
+     printf("Second Root Root2= %f\n",y);
+   }
+    else if(d>0)
+	{
+	   printf("Both roots are real and different\n");
+	   x=(-b+(d))/(2*a);
+	   y=(-b-(d))/(2*a);
+	   printf("1st Root= %f\n",x);
+	   printf("2nd Root= %f\n",y);
+	}
+	else
+	    printf("Root are imaginary\nNo Solution. \n");
+} 
+
+
+/check whether a number is odd or even
+#include <stdio.h>
+
+int main()
+{
+    int x;
+    printf("Enter an integer:");
+    scanf("%d", &x);
+    if(x%2==0)
+        printf("%d is even.",x);
+    else
+        printf("%d is odd.",x);
+    
+}
+
+/find greatest of three numbers
+#include<stdio.h>
+int main()
+{
+  float x, y, z;
+
+  printf("Enter 1st number:");
+  scanf("%f", &x);
+  printf("Enter 2nd number:");
+  scanf("%f", &y);
+  printf("Enter 3rd number:");
+  scanf("%f", &z);
+
+
+
+  if (x >= y && x >= z)
+    printf("%f is the largest number.", x);
+
+  if (y >= x && y >= z)
+    printf("%f is the largest number.", y);
+
+  if (z >= x && z >= y)
+    printf("%f is the largest number.", z);
+}
+
+/check whether a given year is leap year or not
+#include<stdio.h>
+int main()
+{
+  int year;
+  printf("Enter the year:");
+  scanf("%d",&year);
+  if (year%4==0)
+       { printf("%d is a leap year.", year);
+       }
+  else if (year%100==0){
+     printf("%d is a leap year.", year);
+  }
+  else if (year%400==0){
+      printf("%d is a leap year.", year);
+
+  }
+  else {
+      printf("%d is not a leap year.", year);
+
+  }
+   
+  }
+
