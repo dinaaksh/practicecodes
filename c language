@@ -313,7 +313,7 @@ int main()
 //CALCULATE AND PRINT ELECTRICITY BILL, THE CUSTOMER ID, AND UNIT CONSUMED BY THE USER SHOULD BE TAKEN FROM THE KEYBOARD AND DISPLAY THE TOTAL AMOUNT TO PAY TO THE CUSTOMER 
 //UPTO 199, 1.20
 //200-500 1.8 
-//ABOVE 500, 3 
+//ABOVE 500, 2 
 //IF BILL EXCEEDS RS 400 THEN SURCHARGE OF 15% WILL BE CHARGED AND MINIMUM BILL SHOULD BE 100/-
 #include<stdio.h>
 int main()
@@ -357,7 +357,7 @@ int main()
     }
     
     else if(units>500){
-        gross=units*3;
+        gross=units*2;
         if(gross>400){
             gross=gross+(gross*0.15);
             printf("The Customer ID is:%d\n",customer_id);
