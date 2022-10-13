@@ -315,7 +315,7 @@ int main()
 //200-500 1.8 
 //ABOVE 500, 3 
 //IF BILL EXCEEDS RS 400 THEN SURCHARGE OF 15% WILL BE CHARGED AND MINIMUM BILL SHOULD BE 100/-
- int main()
+#include<stdio.h>
 int main()
 {
     int customer_id; 
