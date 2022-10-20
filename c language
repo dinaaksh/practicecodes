@@ -374,3 +374,107 @@ int main()
     
     
 }
+
+// check whether a triangle is Equilateral, scalene, or isosceles
+#include <stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter Side 1:");
+    scanf("%d",&a);
+    printf("Enter Side 2:");
+    scanf("%d",&b);
+    printf("Enter Side 3:");
+    scanf("%d",&c);
+    if(a == b && b == c){
+        printf("The given triangle is equilateral");
+    }
+    else if(a == b || b == c || c == a){
+        printf("The given triangle is isoceles");
+    }
+    else{
+        printf("The given triangle is scalene");
+    }
+}
+
+//check whether a triangle is right angles, obtuse, acute triangle
+#include <stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter angle 1:");
+    scanf("%d",&a);
+    printf("Enter angle 2:");
+    scanf("%d",&b);
+    printf("Enter angle 3:");
+    scanf("%d",&c);
+    if(a==90 || b==90 || c==90){
+        printf("The given triangle is right angled");
+    }
+    else if(a>90 || b>90 || c>90){
+        printf("The given triangle is obtuse angled");
+    }
+    else if(a<90 || b<90 || c<90){
+        printf("The given triangle is acute angled");
+    }
+}
+
+//accept a coordinate point in a XY coordinate system and determine in which quadrant the coordinate point lies.
+#include <stdio.h>
+int main()
+{
+	int x,y;
+	printf("Enter X coordinate : ");
+	scanf("%d",&x);
+	printf("Enter Y coordinate : ");
+	scanf("%d",&y);
+    if( x>0 && y>0)
+	  printf("The points (%d,%d) lie in the First quadrant.\n",x,y);
+	else if( x<0 && y>0)
+	  printf("The points (%d,%d) lies in the Second quadrant.\n",x,y);
+	else if( x<0 && y<0)
+	  printf("The points (%d, %d) lies in the Third quadrant.\n",x,y);
+	else if( x > 0 && y < 0)
+	  printf("The points (%d,%d) lies in the Fourth quadrant.\n",x,y);
+	else if( x == 0 && y == 0)
+	  printf("The points (%d,%d) lies at the origin.\n",x,y);
+}
+
+//Find area of triangle using heron’s formula
+#include <stdio.h>
+#include <math.h>
+void main()
+{
+	float a,b,c,s,d,area;
+	printf("Enter side a:");
+	scanf("%f",&a);
+	printf("Enter side b:");
+	scanf("%f",&b);
+	printf("Enter side c:");
+	scanf("%f",&c);
+	s=(a+b+c)/2;
+	d=sqrt((s*(s-a)*(s-b)*(s-c)));
+	printf("The area is:%f",d);
+}
+//A library charges a fine for every book returned late. For first 5 days the fine is 50 paisa, for
+//6-10 days, fine is one rupee and above 10 days, fine is 5 rupees. If you return the book after
+//30 days your membership will be cancelled. Write a program to accept the number of days
+//the member is late to return the book and display the fine or appropriate message.
+#include <stdio.h>
+int main()
+{
+	int a,b;
+
+	printf("Input the number of days the book was due : ");
+	scanf("%d",&a);
+
+	if(a<5) 
+	  printf("Your fine is 50 paisa.\n");
+	else if( a > 5 && a < 11)
+	  printf("Your fine is 1 rupee.\n");
+	else if( a > 10)
+	  printf("Your fine is 5 rupees.\n");
+	else if( a > 30)
+	  printf("YOUR MEMBERSHIP IS CANCELLED.\n");
+
+}
