@@ -478,3 +478,19 @@ int main()
 	  printf("YOUR MEMBERSHIP IS CANCELLED.\n");
 
 }
+
+//swapping two numbers with bitwise XOR
+#include <stdio.h> 
+int main()
+{
+    int i, k;
+    printf("Enter two integers\n");
+    scanf("%d %d", &i, &k);
+    printf("\n swapping i=%d and k=%d",i,k);
+    i = i ^ k;
+    k = i ^ k;
+    i = i ^ k;
+    printf("\n we get i=%d and k=%d",i,k);
+}
+
+//
