@@ -493,4 +493,70 @@ int main()
     printf("\n we get i=%d and k=%d",i,k);
 }
 
-//
+//reverse a four digit number
+#include <stdio.h>
+int main()
+{
+    int n,a,b,c,d;
+    printf("Enter the 4 digit number:");
+    scanf("%d",&n);
+    printf("The number is:%d\n",n);
+    a=n%10;
+    b=((n-a)/10)%10;
+    c=((n-((b*10)+a))/100)%10;
+    d=((n-((c*100)+(b*10)+a))/1000)%10;
+    printf("The swapped digit:%d%d%d%d",a,b,c,d);
+}
+
+//factorial of a number
+#include <stdio.h>
+int main()
+{   
+    int a,n,b;
+    n=b=1;
+    printf("Enter number:");
+    scanf("%d",&a);
+    while (n<=a){
+        b*=n;
+        n++;
+    }
+    printf("The factorial is:%d",b);
+}
+
+//print fibonacci sequence and its sum
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+      int a,b,c,n,i=2,s=1;
+      a=0;
+      b=1;
+      printf("Enter number of terms for Fibonacci series: ");
+      scanf("%d",&n);
+      printf("\nFibonacci Series Upto %d Terms:\n",n);
+      printf("%d,%d",a,b);
+      while(i<n)
+      {
+            c=a+b;
+            printf(",%d",c);
+            a=b;
+            b=c;
+            s=s+c;
+            i++;
+      }
+      printf("\nSum of Fibonacci Series:%d",s);
+}
+
+//find sum of digits of integer(upto 2)
+#include <stdio.h>
+int main()
+{   
+    int a,n,b,sum;
+    printf("Enter number:");
+    scanf("%d",&a);
+    n=a%10;
+    b=(a-n)/10;
+    sum=n+b;
+    printf("The sum is:%d",sum);
+    return 0;
+}
