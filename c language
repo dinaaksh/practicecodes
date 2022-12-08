@@ -721,3 +721,94 @@ int main(){
     printf("\n");    
     }
 }
+
+
+/*wap to print
+*
+*	*
+*	*	*
+#include<stdio.h>
+int main(){
+    int a,i,j,n;
+    printf("Enter number of rows and columns:");
+    scanf("%d",&a);
+    for(i=0;i<a;i++){
+        for(j=0;j<=i;j++){
+            printf("*      ");
+            
+        }
+    printf("\n");    
+    }
+}
+
+/*wap to print
+1	
+1	2
+1	2	3*/
+#include<stdio.h>
+int main(){
+    int a,i,j,n;
+    printf("Enter number of rows and columns:");
+    scanf("%d",&a);
+    for(i=0;i<=a;i++){
+        for(j=1;j<=i;j++){
+            printf("%d      ", j);
+            
+        }
+    printf("\n");    
+    }
+}
+
+/*wap to print
+1	
+2	2
+3	3	3*/
+#include<stdio.h>
+int main(){
+    int a,i,j,n;
+    printf("Enter number of rows and columns:");
+    scanf("%d",&a);
+    for(i=0;i<=a;i++){
+        for(j=1;j<=i;j++){
+            printf("%d      ", i);
+            
+        }
+    printf("\n");    
+    }
+}
+
+/*wap to print
+3
+3	2
+3	2	1*/
+#include<stdio.h>
+int main(){
+    int a,i,j,n;
+    printf("Enter number of rows and columns:");
+    scanf("%d",&a);
+    for(i=a;i>=0;i--){
+        for(j=a;j>i;j--){
+            printf("%d      ", j);
+            
+        }
+    printf("\n");    
+    }
+}
+
+/*wap to print
+3
+2	2
+1	1	1*/
+#include<stdio.h>
+int main(){
+    int a,i,j,n;
+    printf("Enter number of rows and columns:");
+    scanf("%d",&a);
+    for(i=a;i>0;i--){
+        for(j=a;j>=i;j--){
+            printf("%d      ", i);
+            
+        }
+    printf("\n");    
+    }
+}
