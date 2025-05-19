@@ -131,3 +131,39 @@ int main()
     }
 }
 
+7)sum of n numbers
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{
+    int n,sum=0;
+    cout<<"Enter a number: ";
+    cin>>n;
+    for(int i=0;i<=n;i++){
+        sum+=i;
+    }
+    cout<<"Sum is: "<<sum;
+}
+
+8)factorial
+
+#include <iostream>
+using namespace std; 
+
+int fac(int n){
+    if(n==0){
+        return 1;
+    }
+    return n*fac(n-1);
+}
+int main()
+{
+    int n,result;
+    cout<<"Enter a number: ";
+    cin>>n;
+    result=fac(n);
+    cout<<"factorial of "<<n<<" is: "<<result;
+}
+
