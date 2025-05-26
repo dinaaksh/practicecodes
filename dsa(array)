@@ -25,3 +25,207 @@ int main()
         cout<<arr[i]<<" ";
     }
 }
+
+2)missing number in an array
+
+#include <iostream>
+using namespace std; 
+
+int missing(int arr[],int n){
+    int xor1=0;
+    int xor2=0;
+    for(int i=0;i<n;i++){
+        xor1=xor1^arr[i];
+    }
+    for(int i=0;i<=n;i++){
+        xor2=xor2^(i+1);
+    }
+    return (xor1^xor2);
+}
+int main(){
+    int arr[]={1,2,3,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=missing(arr,n);
+    cout<<result;
+}
+
+3)maximum no.of 1s 
+#include <iostream>
+using namespace std; 
+
+int maximum(int arr[],int n){
+    int count=0,i=0,maxcount=0;
+    while(i<n){
+        if(arr[i]==1){
+            count++;
+            maxcount=max(count,maxcount);
+        }
+        else{
+            count=0;
+        }
+        i++;
+    }
+    return maxcount;
+}
+int main(){
+    int arr[]={1,1,1,1,0,0,1};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=maximum(arr,n);
+    cout<<result;
+}
+
+4)find the number that appears once, others twice
+
+#include <iostream>
+using namespace std; 
+
+int once(int arr[],int n){
+    int xor1=0;
+    for(int i=0;i<n;i++){
+        xor1=xor1^arr[i];
+    }
+    return xor1;
+}
+int main(){
+    int arr[]={4,2,2};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=once(arr,n);
+    cout<<result;
+}
+
+5)move all zeroes to the end
+#include <iostream>
+using namespace std; 
+
+void subarray(int arr[],int n){
+    int j=-1;
+    for(int i=0;i<n;i++){
+        if(arr[i]==0){
+            j=i;
+            break;
+        }
+    }
+    if(j==-1) cout<<0;
+    
+    for(int i=j+1;i<n;i++){
+        if(arr[i]!=0){
+            swap(arr[i],arr[j]);
+            j++;
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+int main(){
+    int arr[]={0,2,0,5,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    subarray(arr,n);
+}
+
+6) largest and second largest
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int arr[]={2,5,1,3,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int max=arr[0];
+    for (int i=0;i<n;i++){
+        if(max<arr[i]){
+            max=arr[i];
+        }
+    }
+    int a=arr[0];
+    for (int i=0;i<n;i++){
+        if(a<arr[i]&&arr[i]<max){
+            a=arr[i];
+        }
+    }
+    cout<<"largest element is: "<<max<<endl;
+    cout<<"second largest element is: "<<a;
+}
+
+7)check if sorted
+#include <bits/stdc++.h>
+using namespace std;
+
+bool check(int arr[],int n){
+    for(int i=1;i<n;i++){
+        if(arr[i]<arr[i-1])
+            return false;
+    }
+    return true;
+}
+
+int main(){
+    int arr[]={2,1,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    bool result=check(arr, n);
+    cout<<(result?"true":"false");
+}
+
+8)remove duplicates in sorted array#include <bits/stdc++.h>
+using namespace std;
+
+int duplicate(int arr[],int n){
+    int j=0;
+    for(int i=1;i<n;i++){
+        if(arr[i]!=arr[j]){
+            j++;
+            arr[j]=arr[i];
+        }
+    }
+    return j+1;
+}
+
+int main(){
+    int arr[]={1,2,2,3,4,4,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int a=duplicate(arr,n);
+    for(int i=0;i<a;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+9)left rotate array by 1 place
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void rotate(int arr[],int n){
+    int temp=arr[0];
+    for(int i=0;i<n-1;i++){
+        arr[i]=arr[i+1];
+        }
+    arr[n-1]=temp;
+}
+
+int main(){
+    int arr[]={1,2,3,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    rotate(arr,n);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+10)linear search
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void linear_search(int arr[],int n,int ele){
+    for(int i=0;i<n-1;i++){
+        if(arr[i]==ele){
+            cout<<"element found at index: "<<i;
+        }
+    }
+}
+
+int main(){
+    int arr[]={1,2,3,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int ele=3;
+    linear_search(arr,n,ele);
+}
