@@ -229,3 +229,100 @@ int main(){
     int ele=3;
     linear_search(arr,n,ele);
 }
+
+11) find the majority element that occurs more than n/2 times
+
+#include <iostream>
+using namespace std;
+
+int majority(int arr[],int n){
+    int ele;
+    int count=0;
+    for(int i=0;i<n;i++){
+        if(count==0){
+            count=1;
+            ele=arr[i];
+        }
+        else if(ele==arr[i]) count++;
+        else{
+            count--;
+        }
+    }
+    int a=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==ele) a++;
+    }
+    if(a>n/2) return ele;
+    return -1;
+}
+
+int main(){
+    int arr[]={2,4,1,4,4,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=majority(arr,n);
+    cout<<result;
+}
+
+12)kadane's algorithm to find maximum subarray sum in an array
+
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int kadane(int arr[],int n){
+    int sum=0;
+    int max=INT_MIN;
+    for(int i=0;i<n;i++){
+        sum+=arr[i];
+        if(sum>max){
+            max=sum;
+        }
+        if(sum<0){
+            sum=0;
+        }
+    }
+    return max;
+}
+
+int main(){
+    int arr[]={-2,1,-3,4,-1,2,1,-5,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=kadane(arr,n);
+    cout<<result;
+}
+
+13)stock buy and sell
+
+#include <iostream>
+#include <climits>
+using namespace std;
+
+void profit(int arr[],int n){
+    int sum=0;
+    int min=arr[0];
+    int buy_day=0;
+    int sell_day=0;
+    if(n==0) return;
+    for(int i=1;i<n;i++){
+        if(arr[i]<min){
+            min=arr[i];
+            buy_day=i;
+        }
+    int profit=arr[i]-min;
+    if(profit>sum){
+        sum=profit;
+        sell_day=i;
+        }
+    }
+    cout<<"buy on day "<<buy_day<<endl;
+    cout<<"sell on day "<<sell_day<<endl;
+    cout<<"profit: "<<sum<<endl;
+}
+
+int main(){
+    int arr[]={7,1,5,3,6,4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    profit(arr,n);
+}
+
+14)
