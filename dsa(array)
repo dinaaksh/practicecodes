@@ -325,4 +325,91 @@ int main(){
     profit(arr,n);
 }
 
-14)
+14)binary search
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void binary_search(int arr[],int n,int target){
+    int low=0,high=n-1;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(arr[mid]==target){
+            cout<<"element found at index: "<<mid;
+            return;
+        }
+        else if(target<arr[mid]){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+}
+
+int main(){
+    int arr[]={3, 4, 6, 7, 9, 12, 16, 17};
+    int target=12;
+    int n=sizeof(arr)/sizeof(arr[0]);
+    binary_search(arr,n,target);
+}
+
+15)lower bound of an element
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lower_bound(int arr[],int n,int target){
+    int low=0,high=n-1;
+    int a=n;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(target<=arr[mid]){
+            a=mid;
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    return a;
+}
+
+int main(){
+    int arr[]={3, 4, 6, 7, 9, 12, 16, 17};
+    int target=14;
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=lower_bound(arr,n,target);
+    cout<<result;
+}
+
+16)upper bound of an element
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int upper_bound(int arr[],int n,int target){
+    int low=0,high=n-1;
+    int a=n;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(arr[mid]>target){
+            a=mid;
+            high=mid-1;;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    return a;
+}
+
+int main(){
+    int arr[]={3, 4, 6, 7, 9, 12, 16, 17};
+    int target=3;
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int result=upper_bound(arr,n,target);
+    cout<<result;
+}
+
+19)
