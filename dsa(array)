@@ -464,3 +464,62 @@ int main(){
     pair<int,int> result=find_floor_and_ceil(arr,n,k);
     cout<<result.first<<" "<<result.second;
 }
+
+20)last occurence in a sorted array
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int insert_pos(int arr[],int n,int val){
+    int low=0,high=n-1;
+    int ans=-1;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(arr[mid]==val){
+            ans=mid;
+            low=mid+1;
+        }
+        else if(arr[mid]>val){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+    int arr[]={3,4,13,13,20,40};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int val=13;
+    int result=insert_pos(arr,n,val);
+    cout<<result;
+}
+
+21)search insert position
+
+#include <bits/stdc++.h>
+using namespace std;
+int insert_pos(int arr[],int n,int val){
+    int low=0,high=n-1;
+    int ans=n;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(arr[mid]>=val){
+            ans=mid;
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    return ans;
+}
+int main(){
+    int arr[]={2,3,6,7};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int val=5;
+    int result=insert_pos(arr,n,val);
+    cout<<result;
+}
