@@ -412,3 +412,626 @@ int main(){
         current=newnode;
     }
 }
+
+7)reverse doubly linked list
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* prev;
+    Node* next;
+    
+    Node(int data1,Node* prev1, Node* next1){
+        data=data1;
+        prev=prev1;
+        next=next1;
+    }
+    Node(int data1){
+        data=data1;
+        prev=nullptr;
+        next=nullptr;
+    }
+};
+
+Node* arrtoDLL(vector<int> arr){
+    Node* head=new Node(arr[0]);
+    Node* current=head;
+    for(int i=1;i<arr.size();i++){
+        Node* temp=new Node(arr[i]);
+        current->next=temp;
+        temp->prev=current;
+        current=temp;
+    }
+    return head;
+}
+
+void display(Node* head){
+    while(head!=nullptr){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+}
+
+Node* reverseDLL(Node* head){
+    if(head==NULL||head->next==NULL){
+        return head;
+    }
+    Node* current=head;
+    Node* temp=nullptr;
+    while(current!=NULL){
+        temp=current->prev;
+        current->prev=current->next;
+        current->next=temp;
+        current=current->prev;
+    }
+    return temp->prev;
+}
+
+int main(){
+    vector<int> arr={1,2,3,4,5};
+    Node* head=arrtoDLL(arr);
+    display(head);
+    cout<<endl;
+    head=reverseDLL(head);
+    display(head);
+}
+
+8)reverse linked list 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node* reverseLL(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return head;
+    }
+    Node* temp=head;
+    Node* prev=nullptr;
+    while(temp!=nullptr){
+        Node* front=temp->next;
+        temp->next=prev;
+        prev=temp;
+        temp=front;
+    }
+    return prev;
+}
+
+int main(){
+    vector<int> arr={1,2,3,4,5};
+    Node* head=new Node(arr[0]);
+    Node* current=head;
+    for(int i=1;i<arr.size();i++){
+        current->next=new Node(arr[i],nullptr);
+        current=current->next;
+    }
+    head=reverseLL(head);
+    while(head!=nullptr){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+}
+
+9)middle element of linked list
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node* findmiddle(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return head;
+    }
+    Node* slow=head;
+    Node* fast=head;
+    while(fast!=nullptr&&fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    return slow;
+}
+
+int main(){
+    vector<int> arr={1,2,3,4,5,6};
+    Node* head=new Node(arr[0]);
+    Node* current=head;
+    for(int i=1;i<arr.size();i++){
+        current->next=new Node(arr[i],nullptr);
+        current=current->next;
+    }
+    Node* middle=findmiddle(head);
+    cout<<middle->data;
+}
+
+10)length of loop in linked list
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+int count(Node* slow, Node* fast){
+    int cnt=1;
+    fast=fast->next;
+    while(slow!=fast){
+        cnt++;
+        fast=fast->next;
+    }
+    return cnt;
+}
+
+
+int findloop(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return -1;
+    }
+    Node* slow=head;
+    Node* fast=head;
+    while(fast!=nullptr&&fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next->next;
+        if(slow==fast){
+            return count(slow,fast);
+        }
+    }
+    return -1;
+}
+
+int main(){
+    Node* head=new Node(1);
+    Node* second=new Node(2);
+    Node* third=new Node(3);
+    Node* fourth=new Node(4);
+    Node* fifth=new Node(5);
+    head->next=second;
+    second->next=third;
+    third->next=fourth;
+    fourth->next=fifth;
+    fifth->next=second;
+    int loop=findloop(head);
+    cout<<loop;
+}
+
+11)start of loop
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node* startnode(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return nullptr;
+    }
+    Node* slow=head;
+    Node* fast=head;
+    while(fast!=nullptr&&fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next->next;
+        if(slow==fast){
+            slow=head;
+            while(slow!=fast){
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        }
+    }
+    return nullptr;
+}
+
+int main(){
+    Node* head=new Node(1);
+    Node* second=new Node(2);
+    Node* third=new Node(3);
+    Node* fourth=new Node(4);
+    Node* fifth=new Node(5);
+    head->next=second;
+    second->next=third;
+    third->next=fourth;
+    fourth->next=fifth;
+    fifth->next=second;
+    Node* start=startnode(head);
+    cout<<"cycle starts at node with value: "<<start->data;
+}
+
+12)segregate even and odd nodes
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node *head, *tail;
+
+void print(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        cout<<head->data<<endl;
+        return;
+    }
+    while(head!=nullptr){
+        cout<<head->data<<"-->";
+        head=head->next;
+    }
+    cout<<"null"<<endl;
+}
+
+void create(int val){
+    Node* newnode=new Node(val);
+    if(head==nullptr){
+        head=newnode;
+        tail=newnode;
+    }
+    else{
+        tail->next=newnode;
+        tail=newnode;
+    }
+}
+
+Node* segregate(){
+    Node* oddhead=new Node(-1), *oddtail=oddhead;
+    Node* evenhead=new Node(-1), *eventail=evenhead;
+    Node* current=head;
+    Node* temp;
+    while(current!=nullptr){
+        temp=current;
+        current=current->next;
+        temp->next=nullptr;
+        if(temp->data & 1){
+            oddtail->next=temp;
+            oddtail=temp;
+        }
+        else{
+            eventail->next=temp;
+            eventail=temp;
+        }
+    }
+    eventail->next=oddhead->next;
+    return evenhead->next;
+}
+
+int main(){
+    create(1);
+    create(2);
+    create(3);
+    create(4);
+    cout<<"Initial linked list: "<<endl;
+    print(head);
+    Node* result=segregate();
+    cout<<"\nAfter segregation of odd and even: "<<endl;
+    print(result);
+}
+
+13)intersection of two linked list
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+
+void print(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        cout<<head->data<<endl;
+        return;
+    }
+    while(head->next!=nullptr){
+        cout<<head->data<<"-->";
+        head=head->next;
+    }
+    cout<<head->data<<endl;
+}
+
+void create(Node* &head,int val){
+    Node* newnode=new Node(val);
+    if(head==nullptr){
+        head=newnode;
+        return;
+    }
+    Node* temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    return;
+}
+
+Node* intersection(Node* head1, Node* head2){
+    Node* n1=head1;
+    Node* n2=head2;
+    while(n1!=n2){
+        n1=n1==nullptr? head2:n1->next;
+        n2=n2==nullptr? head1:n2->next;
+    }
+    return n1;
+}
+
+int main(){
+    Node* head=nullptr;
+    create(head,1);
+    create(head,3);
+    create(head,1);
+    create(head,2);
+    create(head,4);
+    Node* head1=head;
+    head=head->next->next->next;
+    Node* head2=nullptr;
+    create(head2,3);
+    head2->next=head;
+    cout<<"List1: "; print(head1);
+    cout<<"List2: "; print(head2);
+    Node* result=intersection(head1,head2);
+    cout<<"\nIntersection is at node with val: "<<result->data<<endl;
+}
+
+14)linked list palindrome 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node* head;
+
+Node* reverse(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return head;
+    }
+    Node* temp=head;
+    Node* prev=nullptr;
+    while(temp!=nullptr){
+        Node* front=temp->next;
+        temp->next=prev;
+        prev=temp;
+        temp=front;
+    }
+    return prev;
+}
+
+bool palindrome(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        return true;
+    }
+    Node* slow=head;
+    Node* fast=head;
+    while(fast!=nullptr && fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    Node* temp=reverse(slow->next);
+    Node* n1=head;
+    Node* n2=temp;
+    while(n2!=nullptr){
+        if(n1->data!=n2->data){
+            reverse(temp);
+            return false;
+        }
+        n1=n1->next;
+        n2=n2->next;
+    }
+    reverse(temp);
+    return true;
+}
+
+void print(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        cout<<head->data<<endl;
+        return;
+    }
+    while(head->next!=nullptr){
+        cout<<head->data<<"-->";
+        head=head->next;
+    }
+    cout<<head->data<<endl;
+}
+
+void create(int val){
+    Node* newnode=new Node(val);
+    if(head==nullptr){
+        head=newnode;
+        return;
+    }
+    Node* temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    return;
+}
+
+
+int main(){
+    create(1);
+    create(2);
+    create(3);
+    create(2);
+    create(1);
+    if(palindrome(head)){
+        cout<<"Given linked list is a palindrome"<<endl;
+    }
+    else{
+        cout<<"Given linked list is not a palindrome"<<endl;
+    }
+}
+
+15)remove Nth node from end of linked list
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node* next;
+    
+    Node(int data1,Node* next1){
+        data=data1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        next=nullptr;
+    }
+};
+
+Node* head=nullptr;
+
+Node* nth_node(Node* head,int n){
+    Node* slow=head;
+    Node* fast=head;
+    
+    for(int i=0;i<n;i++){
+        fast=fast->next;
+    }
+    
+    if(fast==nullptr){
+        return head->next;
+    }
+    
+    while(fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next;
+    }
+    
+    Node* temp=slow->next;
+    slow->next=slow->next->next;
+    delete temp;
+    return head;
+}
+
+void print(Node* head){
+    if(head==nullptr||head->next==nullptr){
+        cout<<head->data<<endl;
+        return;
+    }
+    while(head->next!=nullptr){
+        cout<<head->data<<"-->";
+        head=head->next;
+    }
+    cout<<head->data<<endl;
+}
+
+void create(int val){
+    Node* newnode=new Node(val);
+    if(head==nullptr){
+        head=newnode;
+        return;
+    }
+    Node* temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    return;
+}
+
+
+int main(){
+    create(1);
+    create(2);
+    create(3);
+    create(4);
+    create(5);
+    head=nth_node(head,3);
+    print(head);
+}
