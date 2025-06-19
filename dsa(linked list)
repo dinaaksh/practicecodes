@@ -1035,3 +1035,196 @@ int main(){
     head=nth_node(head,3);
     print(head);
 }
+
+16)delete all occurences of key in dll
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+ public:
+    int data;
+    Node* prev;
+    Node* next;
+    
+    Node(int data1, Node* prev1, Node* next1){
+        data=data;
+        prev=prev1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        prev=nullptr;
+        next=nullptr;
+    }
+};
+
+
+Node* deletekey(Node* &head,int val){
+    Node* temp=head;
+    while(temp!=nullptr){
+        if(temp->data==val){
+            Node* todelete=temp;
+            if(temp==head){
+                head=temp->next;
+                if(head!=nullptr) head->prev=nullptr;
+                }
+            else{
+                if(temp->prev!=nullptr){
+                    temp->prev->next=temp->next;
+                    }
+                if(temp->next!=nullptr){
+                    temp->next->prev=temp->prev;
+                    }
+                }
+            temp=temp->next;
+            delete todelete;
+        }
+        else{
+            temp=temp->next;
+            }
+    }
+    return head;
+}
+
+int main(){
+    vector<int> arr={1,2,2,3,2,4};
+    Node* head=new Node(arr[0]);
+    Node* temp=head;
+    for(int i=1;i<arr.size();i++){
+        Node* newnode=new Node(arr[i]);
+        temp->next=newnode;
+        newnode->prev=temp;
+        temp=newnode;
+    }
+    deletekey(head,2);
+    while(head->next!=nullptr){
+        cout<<head->data<<"->";
+        head=head->next;
+    }
+    cout<<head->data<<endl;
+}
+
+17)delete duplicates in sorted dll
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+ public:
+    int data;
+    Node* prev;
+    Node* next;
+    
+    Node(int data1, Node* prev1, Node* next1){
+        data=data;
+        prev=prev1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        prev=nullptr;
+        next=nullptr;
+    }
+};
+
+
+Node* duplicates(Node* &head){
+    Node* temp=head;
+    while(temp!=nullptr&&temp->next!=nullptr){
+        if(temp->data==temp->next->data){
+            Node* todelete=temp->next;
+            temp->next=temp->next->next;
+            if(temp->next!=nullptr){
+                temp->next->prev=temp;
+            }
+            delete todelete;
+        }
+        else{
+            temp=temp->next;
+        }
+    }
+    return head;
+}
+
+int main(){
+    vector<int> arr={1,2,2,3,4,4};
+    Node* head=new Node(arr[0]);
+    Node* temp=head;
+    for(int i=1;i<arr.size();i++){
+        Node* newnode=new Node(arr[i]);
+        temp->next=newnode;
+        newnode->prev=temp;
+        temp=newnode;
+    }
+    duplicates(head);
+    while(head->next!=nullptr){
+        cout<<head->data<<"->";
+        head=head->next;
+    }
+    cout<<head->data<<endl;
+}
+
+18)find pairs with given sum in a dll
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+ public:
+    int data;
+    Node* prev;
+    Node* next;
+    
+    Node(int data1, Node* prev1, Node* next1){
+        data=data;
+        prev=prev1;
+        next=next1;
+    }
+    
+    Node(int data1){
+        data=data1;
+        prev=nullptr;
+        next=nullptr;
+    }
+};
+
+
+void pairsum(Node *head,int x){
+    Node* left=head;
+    Node* right=head;
+    while(right->next!=nullptr){
+        right=right->next;
+    }
+    while(left!=right&&right->next!=left){
+        int sum=left->data+right->data;
+        if(sum==x){
+            cout<<"{"<<left->data<<","<<right->data<<"}"<<endl;
+            left=left->next;
+            right=right->prev;
+        }
+        else{
+            if(sum<x){
+                left=left->next;
+            }
+            else{
+                right=right->prev;
+            }
+        }
+    }
+}
+
+int main(){
+    vector<int> arr={2,3,4,10,12};
+    Node* head=new Node(arr[0]);
+    Node* temp=head;
+    for(int i=1;i<arr.size();i++){
+        Node* newnode=new Node(arr[i]);
+        temp->next=newnode;
+        newnode->prev=temp;
+        temp=newnode;
+    }
+    pairsum(head,14);
+}
