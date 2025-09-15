@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int lowerBound(int arr[],int n,int target){
+int upperBound(int arr[],int n,int target){
     int low=0;
     int high=n-1;
     int ans=n;
@@ -20,6 +20,6 @@ int main(){
     int arr[]={3,4,6,7,9,12,16,17};
     int target=14;
     int n=sizeof(arr)/sizeof(arr[0]);
-    int result=lowerBound(arr,n,target);
+    int result=upperBound(arr,n,target);
     cout<<result;
 }
