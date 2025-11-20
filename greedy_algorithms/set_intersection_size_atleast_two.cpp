@@ -1,4 +1,4 @@
-class Solution {
+class Solution { 
 public:
     static bool comparator(const vector<int> &a,const vector<int> &b){
         if(a[1]==b[1]) return a[0]>b[0];
@@ -20,6 +20,6 @@ public:
                 ans.push_back(end);
             }
         }
-        return ans.size();
+        return ans.size(); //space complexity O(n), optimized is O(1) in another file
     }
 };
